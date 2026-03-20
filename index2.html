@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dr. Adekunle Oyewale Aliu | Civil Engineer & Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:    #0a1628;
+      --ink:     #1a2a40;
+      --teal:    #00a896;
+      --teal-lt: #00c8b1;
+      --gold:    #c8922a;
+      --cream:   #f5f0e8;
+      --offwhite:#fafaf7;
+      --mid:     #64748b;
+      --border:  rgba(0,168,150,0.2);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--offwhite);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(10,22,40,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,168,150,0.25);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; color: var(--teal); letter-spacing: .04em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75); text-decoration: none;
+      font-size: .85rem; font-weight: 500; letter-spacing: .06em;
+      text-transform: uppercase; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--teal-lt); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy) 0%, #112240 60%, #1a3a5c 100%);
+      display: flex; align-items: center;
+      padding: 80px 2rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content:'';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(0,168,150,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(200,146,42,0.08) 0%, transparent 60%);
+    }
+    .hero-grid {
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+      align-items: center; position: relative; z-index: 1;
+    }
+    .hero-eyebrow {
+      font-size: .8rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--teal); font-weight: 600; margin-bottom: 1rem;
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .hero-eyebrow::before {
+      content:''; display: block;
+      width: 32px; height: 2px; background: var(--teal);
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      color: #fff; line-height: 1.12; margin-bottom: 1.2rem;
+      font-weight: 900;
+    }
+    h1 span { color: var(--teal-lt); font-style: italic; }
+    .hero-sub {
+      color: rgba(255,255,255,0.65); font-size: 1.05rem;
+      margin-bottom: 2rem; max-width: 480px;
+    }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2.5rem; }
+    .tag {
+      background: rgba(0,168,150,0.12); color: var(--teal-lt);
+      border: 1px solid rgba(0,168,150,0.3);
+      border-radius: 2px; padding: .3rem .8rem;
+      font-size: .78rem; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--teal); color: #fff;
+      padding: .8rem 1.8rem; border-radius: 3px;
+      text-decoration: none; font-weight: 600; font-size: .9rem;
+      letter-spacing: .04em; transition: background .2s, transform .2s;
+      border: 2px solid var(--teal);
+    }
+    .btn-primary:hover { background: var(--teal-lt); border-color: var(--teal-lt); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: rgba(255,255,255,0.8);
+      padding: .8rem 1.8rem; border-radius: 3px;
+      text-decoration: none; font-weight: 600; font-size: .9rem;
+      letter-spacing: .04em; transition: all .2s;
+      border: 2px solid rgba(255,255,255,0.25);
+    }
+    .btn-outline:hover { border-color: var(--teal); color: var(--teal-lt); transform: translateY(-2px); }
+
+    /* Hero stats */
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px; padding: 1.5rem;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::after {
+      content:''; position: absolute;
+      top: 0; left: 0; width: 3px; height: 100%;
+      background: var(--teal);
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem; color: #fff; font-weight: 900; line-height: 1;
+    }
+    .stat-label { color: rgba(255,255,255,0.5); font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; margin-top: .3rem; }
+    .stat-sub { color: var(--teal); font-size: .75rem; margin-top: .2rem; font-weight: 600; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      font-size: .75rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--teal); font-weight: 700; margin-bottom: .6rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .section-label::before {
+      content:''; display: block;
+      width: 24px; height: 2px; background: var(--teal);
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--navy); font-weight: 900; margin-bottom: 1rem; line-height: 1.2;
+    }
+    .section-intro {
+      color: var(--mid); max-width: 600px; font-size: 1.05rem;
+    }
+    .section-head { margin-bottom: 3.5rem; }
+
+    /* ── ABOUT ── */
+    #about { background: var(--cream); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start;
+    }
+    .about-sidebar {}
+    .profile-icon {
+      width: 160px; height: 160px; border-radius: 6px;
+      background: linear-gradient(135deg, var(--teal), var(--navy));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem; color: #fff; font-weight: 900;
+      margin-bottom: 1.5rem; letter-spacing: -.02em;
+    }
+    .contact-list { list-style: none; }
+    .contact-list li {
+      display: flex; align-items: flex-start; gap: .7rem;
+      padding: .5rem 0; border-bottom: 1px solid rgba(0,0,0,0.07);
+      font-size: .88rem;
+    }
+    .contact-list li:last-child { border-bottom: none; }
+    .c-icon { color: var(--teal); font-size: 1rem; flex-shrink: 0; margin-top: .1rem; }
+    .contact-list a { color: var(--ink); text-decoration: none; word-break: break-all; }
+    .contact-list a:hover { color: var(--teal); }
+    .about-body p { color: #4a5568; margin-bottom: 1.2rem; line-height: 1.8; font-size: 1rem; }
+    .interests-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+      gap: 1rem; margin-top: 1.5rem;
+    }
+    .interest-item {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 4px; padding: 1rem 1.2rem;
+      display: flex; align-items: flex-start; gap: .6rem;
+      font-size: .9rem; color: var(--ink);
+    }
+    .interest-item::before {
+      content: '▹'; color: var(--teal); flex-shrink: 0; font-size: .85rem; margin-top: .05rem;
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--offwhite); }
+    .timeline { position: relative; }
+    .timeline::before {
+      content:''; position: absolute;
+      left: 180px; top: 0; bottom: 0; width: 2px;
+      background: linear-gradient(to bottom, var(--teal), transparent);
+    }
+    .tl-item {
+      display: grid; grid-template-columns: 180px 1fr;
+      gap: 2.5rem; margin-bottom: 2.8rem; position: relative;
+    }
+    .tl-date {
+      text-align: right; padding-right: 2.5rem; padding-top: .2rem;
+      font-size: .8rem; color: var(--mid); font-weight: 600;
+      letter-spacing: .04em; line-height: 1.4;
+    }
+    .tl-dot {
+      position: absolute; left: 180px;
+      top: .5rem; width: 10px; height: 10px;
+      border-radius: 50%; background: var(--teal);
+      transform: translateX(-4px);
+      box-shadow: 0 0 0 4px rgba(0,168,150,0.15);
+    }
+    .tl-content {
+      background: #fff; border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 6px; padding: 1.5rem 1.8rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .tl-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem;
+    }
+    .tl-org { color: var(--teal); font-weight: 600; font-size: .88rem; margin-bottom: .8rem; }
+    .tl-body { color: #4a5568; font-size: .9rem; }
+    .tl-body ul { list-style: none; }
+    .tl-body li {
+      padding: .2rem 0; padding-left: 1.2rem; position: relative;
+    }
+    .tl-body li::before {
+      content: '▹'; position: absolute; left: 0; color: var(--teal); font-size: .8rem;
+    }
+
+    /* ── PUBLICATIONS ── */
+    #publications { background: var(--cream); }
+    .pub-list { list-style: none; }
+    .pub-item {
+      background: #fff; border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 6px; padding: 1.4rem 1.8rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--teal);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .pub-item:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); transform: translateX(4px); }
+    .pub-num {
+      font-size: .75rem; color: var(--teal); font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase; margin-bottom: .3rem;
+    }
+    .pub-authors { color: var(--mid); font-size: .88rem; margin-bottom: .3rem; }
+    .pub-authors strong { color: var(--teal); font-weight: 700; }
+    .pub-title { color: var(--navy); font-weight: 600; font-size: .95rem; margin-bottom: .3rem; line-height: 1.5; }
+    .pub-journal { font-style: italic; color: var(--mid); font-size: .85rem; }
+
+    /* ── EDUCATION ── */
+    #education { background: var(--offwhite); }
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+    .edu-card {
+      background: #fff; border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.07);
+      padding: 2rem; position: relative; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .edu-card::before {
+      content:''; position: absolute;
+      top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--teal), var(--gold));
+    }
+    .edu-degree {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: .4rem;
+    }
+    .edu-school { color: var(--teal); font-weight: 600; font-size: .9rem; margin-bottom: .3rem; }
+    .edu-year { color: var(--mid); font-size: .82rem; letter-spacing: .04em; margin-bottom: .8rem; }
+    .edu-thesis { color: #4a5568; font-size: .88rem; font-style: italic; line-height: 1.6; }
+
+    /* ── METRICS ── */
+    #metrics { background: var(--navy); padding: 5rem 2rem; }
+    .metrics-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    #metrics h2 { color: #fff; }
+    #metrics .section-label { justify-content: center; }
+    #metrics .section-label::before { display: none; }
+    .metrics-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 2rem; margin-top: 3rem;
+    }
+    .metric {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px; padding: 2rem 1rem;
+    }
+    .metric-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem; color: var(--teal-lt); font-weight: 900; line-height: 1;
+    }
+    .metric-label { color: rgba(255,255,255,0.5); font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; margin-top: .5rem; }
+
+    /* ── PROFILES & YOUTUBE ── */
+    #profiles { background: var(--cream); }
+    .profiles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
+    .profile-card {
+      background: #fff; border-radius: 6px;
+      border: 1px solid rgba(0,0,0,0.07);
+      padding: 1.4rem; text-align: center;
+      text-decoration: none; color: var(--ink);
+      transition: all .2s; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      display: flex; flex-direction: column; align-items: center; gap: .6rem;
+    }
+    .profile-card:hover {
+      transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      border-color: var(--teal);
+    }
+    .profile-icon-wrap {
+      width: 52px; height: 52px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+    }
+    .profile-name { font-weight: 700; font-size: .9rem; color: var(--navy); }
+    .profile-desc { color: var(--mid); font-size: .78rem; }
+
+    /* YouTube special card */
+    .yt-card {
+      background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+      color: #fff; border-color: #ff0000;
+      grid-column: 1 / -1;
+      flex-direction: row; justify-content: flex-start; text-align: left; padding: 1.8rem 2rem;
+    }
+    .yt-card:hover { border-color: #ff0000; }
+    .yt-card .profile-name { color: #fff; font-size: 1.05rem; }
+    .yt-card .profile-desc { color: rgba(255,255,255,0.8); font-size: .9rem; }
+    .yt-icon-wrap {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; flex-shrink: 0;
+    }
+    .yt-text { display: flex; flex-direction: column; gap: .3rem; }
+
+    /* ── MEMBERSHIPS ── */
+    #memberships { background: var(--offwhite); }
+    .member-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 1rem; }
+    .member-card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 6px; padding: 1.2rem 1.4rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .member-badge {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--navy));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 900; font-size: .72rem;
+      text-align: center; line-height: 1.2; flex-shrink: 0;
+    }
+    .member-name { font-weight: 700; font-size: .88rem; color: var(--navy); }
+    .member-id { color: var(--mid); font-size: .78rem; }
+
+    /* ── REFEREES ── */
+    #referees { background: var(--cream); }
+    .referees-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1.5rem; }
+    .referee-card {
+      background: #fff; border-radius: 8px; padding: 1.8rem;
+      border: 1px solid rgba(0,0,0,0.07);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .ref-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; }
+    .ref-title { color: var(--teal); font-size: .85rem; font-weight: 600; margin-bottom: .1rem; }
+    .ref-inst { color: var(--mid); font-size: .82rem; margin-bottom: .8rem; }
+    .ref-contact { font-size: .82rem; color: #4a5568; }
+    .ref-contact a { color: var(--teal); text-decoration: none; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,0.4);
+      text-align: center; padding: 2rem;
+      font-size: .82rem; border-top: 1px solid rgba(0,168,150,0.2);
+    }
+    footer a { color: var(--teal); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .timeline::before { left: 0; }
+      .tl-item { grid-template-columns: 1fr; gap: .6rem; }
+      .tl-date { text-align: left; padding-right: 0; }
+      .tl-dot { display: none; }
+      .nav-links { display: none; }
+      .yt-card { grid-column: 1; }
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow { animation: fadeUp .6s ease both; }
+    h1            { animation: fadeUp .7s .1s ease both; }
+    .hero-sub     { animation: fadeUp .7s .2s ease both; }
+    .hero-tags    { animation: fadeUp .7s .3s ease both; }
+    .hero-ctas    { animation: fadeUp .7s .4s ease both; }
+    .hero-stats   { animation: fadeUp .8s .5s ease both; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#hero">Dr. A. O. Aliu</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#profiles">Profiles & Media</a></li>
+      <li><a href="#referees">Referees</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">Civil Engineer &amp; Researcher</div>
+      <h1>Dr. Adekunle<br><span>Oyewale Aliu</span></h1>
+      <p class="hero-sub">
+        PhD, University of KwaZulu-Natal · Sustainable Concrete Technology
+        · Machine Learning in Construction · 18+ Years in Higher Education
+      </p>
+      <div class="hero-tags">
+        <span class="tag">Concrete Technology</span>
+        <span class="tag">AI in Construction</span>
+        <span class="tag">Structural Engineering</span>
+        <span class="tag">Green Materials</span>
+        <span class="tag">Water Treatment</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="#publications" class="btn-primary">View Publications</a>
+        <a href="mailto:aliukunle@gmail.com" class="btn-outline">Contact Me</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">81</div>
+        <div class="stat-label">Citations</div>
+        <div class="stat-sub">Google Scholar</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Publications</div>
+        <div class="stat-sub">Peer-Reviewed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">18+</div>
+        <div class="stat-label">Years Teaching</div>
+        <div class="stat-sub">Higher Education</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">h&thinsp;=&thinsp;5</div>
+        <div class="stat-label">h-Index</div>
+        <div class="stat-sub">i10-index: 4</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-sidebar">
+        <div class="profile-icon">AO</div>
+        <ul class="contact-list">
+          <li>
+            <span class="c-icon">📍</span>
+            A21, Palmview G.R.A. Alagbaka, Akure, Ondo State, Nigeria
+          </li>
+          <li>
+            <span class="c-icon">📞</span>
+            <a href="tel:+2348035495172">+234 803 549 5172</a>
+          </li>
+          <li>
+            <span class="c-icon">✉️</span>
+            <a href="mailto:aliukunle@gmail.com">aliukunle@gmail.com</a>
+          </li>
+          <li>
+            <span class="c-icon">🌐</span>
+            <a href="https://scholar.google.com/citations?hl=en&user=GJqslR0AAAAJ" target="_blank">Google Scholar</a>
+          </li>
+          <li>
+            <span class="c-icon">🔬</span>
+            <a href="https://www.researchgate.net/profile/Aliu-Adekunle" target="_blank">ResearchGate</a>
+          </li>
+          <li>
+            <span class="c-icon">🔗</span>
+            <a href="https://www.linkedin.com/in/adekunle-aliu-ph-d-046543195" target="_blank">LinkedIn</a>
+          </li>
+          <li>
+            <span class="c-icon">🆔</span>
+            ORCID: <a href="https://orcid.org/0000-0003-3749-0894" target="_blank">0000-0003-3749-0894</a>
+          </li>
+        </ul>
+      </div>
+      <div class="about-body">
+        <div class="section-head">
+          <div class="section-label">Professional Summary</div>
+          <h2>About Me</h2>
+        </div>
+        <p>
+          I am a Civil Engineer and researcher with a <strong>PhD in Civil Engineering</strong>
+          from the University of KwaZulu-Natal, South Africa, specialising in sustainable
+          concrete technology, water treatment, alternative cementitious materials, and the
+          application of artificial intelligence in the construction industry.
+        </p>
+        <p>
+          With over <strong>18 years of teaching experience</strong> in higher education,
+          I have supervised 15+ student research projects and authored more than 20
+          peer-reviewed publications amassing 81 citations (h-index: 5). My expertise spans
+          structural engineering, innovative construction materials, and the utilisation of
+          agricultural waste as sustainable binder replacements in concrete production.
+        </p>
+        <p>
+          I am particularly passionate about bridging machine learning with concrete
+          science — developing GUI-based models for concrete strength prediction and
+          advancing green building materials for environmental sustainability in Africa and beyond.
+        </p>
+
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--navy); margin: 2rem 0 1rem;">Research Interests</h3>
+        <div class="interests-grid">
+          <div class="interest-item">Sustainable concrete technology &amp; alternative cementitious materials</div>
+          <div class="interest-item">Structural engineering and design</div>
+          <div class="interest-item">Durability and mechanical properties of concrete</div>
+          <div class="interest-item">Pozzolanic reactivity of supplementary materials</div>
+          <div class="interest-item">Machine learning in concrete material optimisation</div>
+          <div class="interest-item">Green building materials &amp; environmental sustainability</div>
+          <div class="interest-item">Water pollution detection and preventive measures</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Academic Background</div>
+      <h2>Education</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-degree">Doctor of Philosophy (PhD)</div>
+        <div class="edu-school">University of KwaZulu-Natal, Durban, South Africa</div>
+        <div class="edu-year">2021 – 2025 · Civil Engineering</div>
+        <div class="edu-thesis">
+          <strong>Thesis:</strong> "Experimental Investigation and Model Development for
+          Concrete Incorporating Blended Sugarcane Ash and Maize Straw Ash as Partial
+          Replacement for Cement"
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Master of Engineering (MEng)</div>
+        <div class="edu-school">Federal University of Technology Akure, Nigeria</div>
+        <div class="edu-year">2009 – 2014 · Structural Engineering</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Bachelor of Engineering (BEng)</div>
+        <div class="edu-school">Ekiti State University, Ado-Ekiti, Nigeria</div>
+        <div class="edu-year">1999 – 2005 · Civil Engineering</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Career History</div>
+      <h2>Professional Experience</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-date">Oct 2025<br>– Present</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-title">Adjunct Senior Lecturer</div>
+          <div class="tl-org">Olusegun Agagu University of Science and Technology, Okitipupa, Ondo State, Nigeria</div>
+          <div class="tl-body">
+            <ul>
+              <li>Deliver structure-related courses (Structural Mechanics, Design of Steel Structures) to 100+ undergraduate students</li>
+              <li>Provide academic mentorship to students pursuing research in structural engineering</li>
+              <li>Contribute to curriculum development and departmental strategic initiatives</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Oct 2024<br>– Oct 2025</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-title">Adjunct Senior Lecturer</div>
+          <div class="tl-org">Joseph Ayo Babalola University, Ikeji Arakeji, Osun State, Nigeria</div>
+          <div class="tl-body">
+            <ul>
+              <li>Delivered Building Technology, Building Structures, and Design of Steel Structures</li>
+              <li>Provided technical guidance to students engaging in design projects</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Aug 2021<br>– Nov 2023</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-title">Research Assistant</div>
+          <div class="tl-org">College of Agriculture &amp; Engineering, University of KwaZulu-Natal, Durban, South Africa</div>
+          <div class="tl-body">
+            <ul>
+              <li>Assisted in course development and assessment activities</li>
+              <li>Provided academic support and mentorship to second-year civil engineering students</li>
+              <li>Taught Structures I &amp; II, Engineering Mathematics, Technical Communications and MATLAB/Prokon supplementary instruction</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Aug 2009<br>– Present</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-title">Lecturer</div>
+          <div class="tl-org">Civil Engineering Technology Dept., Rufus Giwa Polytechnic, Owo, Ondo State, Nigeria</div>
+          <div class="tl-body">
+            <ul>
+              <li>Lectured across multiple civil engineering courses including Structural Design, Theory of Structures, CAD, and Steel &amp; Timber Design</li>
+              <li>Supervised student research projects to successful completion</li>
+              <li>Developed and implemented digital lecture materials and supplementary video content</li>
+              <li>Served on departmental committees including accreditation and curriculum review</li>
+              <li>SIWES Coordinator and Academic Secretary (2013–2021)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">May–Jul 2007</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-title">Site Engineer</div>
+          <div class="tl-org">Interrotec Project and Works, Akure, Ondo State, Nigeria</div>
+          <div class="tl-body">
+            <ul>
+              <li>Supervised 2km road construction along El-Shaddai road, Akure</li>
+              <li>Design and supervision of drainage and culvert construction</li>
+              <li>Preparation of bill of quantities and site documentation</li>
+              <li>Monitored compliance to design specifications and standards</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section id="metrics">
+  <div class="metrics-inner">
+    <div class="section-label">Research Impact</div>
+    <h2 style="color:#fff; margin-bottom:.5rem;">Scholarly Metrics</h2>
+    <p style="color:rgba(255,255,255,0.5); font-size:.95rem;">As indexed on Google Scholar &amp; Scopus</p>
+    <div class="metrics-grid">
+      <div class="metric">
+        <div class="metric-num">81</div>
+        <div class="metric-label">Total Citations</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">5</div>
+        <div class="metric-label">h-Index</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">4</div>
+        <div class="metric-label">i10-Index</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">20+</div>
+        <div class="metric-label">Publications</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">15+</div>
+        <div class="metric-label">Students Supervised</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Scholarly Output</div>
+      <h2>Peer-Reviewed Publications</h2>
+      <p class="section-intro">Selected works from 20+ peer-reviewed journal articles and conference papers.</p>
+    </div>
+    <ol class="pub-list" reversed>
+
+      <li class="pub-item">
+        <div class="pub-num">2025</div>
+        <div class="pub-authors"><strong>Aliu, A. O.</strong>, Akindureni, Y., &amp; Azowenu, N. S.</div>
+        <div class="pub-title">Harnessing termite digestive capabilities for renewable biogas production: A controlled study with different cellulosic feedstocks.</div>
+        <div class="pub-journal">DSPG Multi-Disciplinary Journal, 2(2), 171–179. ISSN: 3043-4688. <a href="https://dspgmdjournal.com.ng" target="_blank">dspgmdjournal.com.ng</a></div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-num">2025</div>
+        <div class="pub-authors"><strong>Aliu, A. O.</strong>, &amp; McLeod, C.</div>
+        <div class="pub-title">Modification to Optimise the Use of Agricultural Waste (MSA and SCBA) as Partial Cement Replacements Using Reactivity Indices for Concrete Strength Prediction.</div>
+        <div class="pub-journal">Advances in Materials Science and Engineering, 2025(1), 5581327.</div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-num">2024</div>
+        <div class="pub-authors"><strong>Aliu, A.O.</strong>, Akintimiro, A.T., and Oluwasegunfunmi, V.</div>
+        <div class="pub-title">Feasibility Of Using Periwinkle And Palm Kernel Shell Ash As Cementitious Material In Masonry.</div>
+        <div class="pub-journal">RUGIPO Research &amp; Technical Journal, Vol. 3, Issue 02, Pages 34–45. ISSN: 2714-3643.</div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-num">2023</div>
+        <div class="pub-authors"><strong>Aliu, A. O.</strong>, Olalusi, O. B., Awoyera, P. O., &amp; Kiliswa, M.</div>
+        <div class="pub-title">Evaluation of pozzolanic reactivity of maize straw ash as a binder supplement in concrete.</div>
+        <div class="pub-journal">Case Studies in Construction Materials, 18, e01790. <a href="https://doi.org/10.1016/j.cscm.2022.e01790" target="_blank">doi.org/10.1016/j.cscm.2022.e01790</a></div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-num">2022</div>
+        <div class="pub-authors"><strong>Aliu, Adekunle O.</strong>, Fakuyi, Funmi., and Olabisi Williams</div>
+        <div class="pub-title">Feasibility of using Coconut Fibre to improve Concrete Strength.</div>
+        <div class="pub-journal">International Journal of Engineering Research &amp; Technology (IJERT), Vol. 11 Issue 08. ISSN: 2278-0181.</div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-num">2022</div>
+        <div class="pub-authors"><strong>Aliu, Adekunle O.</strong>, Akindureni, Yemisi., Oluwasegunfunmi, Victor</div>
+        <div class="pub-title">Recycling of Waste Plastics for Sustainable Environment.</div>
+        <div class="pub-journal">International Journal of Engineering Research &amp; Technology (IJERT), Vol. 11 Issue 08. ISSN: 2278-0181.</div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-num">2020</div>
+        <div class="pub-authors">Falowo, O. O., &amp; <strong>Aliu, A.</strong></div>
+        <div class="pub-title">Geoengineering Investigation of an Erosion Induced Highway Structural Failure along Ifon-Benin Highway, Southwestern Nigeria.</div>
+        <div class="pub-journal">Earth Sciences Malaysia, 4(1), 51–60.</div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-num">2019</div>
+        <div class="pub-authors"><strong>Aliu A.O.</strong>, Daramola A.S., Fakuyi F.F.</div>
+        <div class="pub-title">Comparative Analysis of Deflective Capability and Breaking Points of Wood Composites.</div>
+        <div class="pub-journal">The International Journal of Engineering and Science (IJES), Vol. 8, Issue 7, Series I, Pages 25–27. ISSN (e): 2319–1813.</div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-num">2019</div>
+        <div class="pub-authors">Falowo, O.O., Oluwasegunfunmi, V., Akindureni, Y., Olabisi, W., <strong>Aliu, A.</strong></div>
+        <div class="pub-title">Groundwater Physicochemical Characteristics and Water Quality Index Determination from Selected Water Wells in Akure, Ondo State, Nigeria.</div>
+        <div class="pub-journal">American Journal of Water Resources, 7(2), 76–88. DOI: 10.12691/ajwr-7-2-5.</div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-num">2019</div>
+        <div class="pub-authors"><strong>Aliu A.O.</strong>, Fakuyi F., Olabisi W.K.</div>
+        <div class="pub-title">The Relativity Of Hydrostatic Impact On Timber And Engineered Materials.</div>
+        <div class="pub-journal">The International Journal of Engineering and Science (IJES), Vol. 8, Issue 9, Series I. DOI: 10.9790/1813-0809014245.</div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-num">2016</div>
+        <div class="pub-authors">Oluwasegunfunmi V. and <strong>Aliu A.O.</strong></div>
+        <div class="pub-title">Assessment of Perception Reaction Parameters on Akure–Owo Highway In Ondo State, Nigeria.</div>
+        <div class="pub-journal">International Journal of Scientific &amp; Engineering Research, Vol. 7, Issue 5. ISSN 2229–5518.</div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-num">2016</div>
+        <div class="pub-authors">Daramola A.S. and <strong>Aliu A.O.</strong></div>
+        <div class="pub-title">Feasibility of Using Maize Straw Ash as Partial Replacement for Cement (Binder) in Concrete.</div>
+        <div class="pub-journal">JEIST, Vol. 1, Issue 1, pp 50–56.</div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-num">2015</div>
+        <div class="pub-authors">Ologunagba I.B., Daramola A.S. and <strong>Aliu Adekunle O.</strong></div>
+        <div class="pub-title">Feasibility of using Rice Husk Ash as Partial Replacement for Concrete.</div>
+        <div class="pub-journal">IJETT, Vol. 30, Number 5, Pages 267–269. ISSN: 2231–5381.</div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-num">2013</div>
+        <div class="pub-authors"><strong>Aliu Adekunle O.</strong> and Daramola A.S.</div>
+        <div class="pub-title">Optimisation for the Use of Rice Husk Ash and Sawdust As Alternative Binder For Concrete.</div>
+        <div class="pub-journal">IJES, Vol. 2, Issue 10, Pages 39–42. ISSN(e): 2319–1813.</div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-num">2013</div>
+        <div class="pub-authors"><strong>Aliu A.O.</strong> and Oluwasegunfunmi V.</div>
+        <div class="pub-title">Innovation for the use of BUSHGRAVEL and PITSAND as Aggregates for Concrete in Construction Industry.</div>
+        <div class="pub-journal">IJERT, Vol. 2, Issue 10. ISSN: 2278-0181.</div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-num">2011</div>
+        <div class="pub-authors">Opeyemi D.A., Ogunsakin V.L., <strong>Aliu A.O.</strong>, Makinde O.O., Daramola A.S. and Olabisi W.</div>
+        <div class="pub-title">The Suitability and Performance of Palm Kernel Shell As a Substitute For Coarse Aggregates in the Production of Concrete.</div>
+        <div class="pub-journal">International Journal of Engineering, Vol. 5, No. 2, pp 81–87.</div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-num">2011</div>
+        <div class="pub-authors">Opeyemi D.A., <strong>Aliu A.O.</strong>, Osadugba M.A. and Daramola A.S.</div>
+        <div class="pub-title">The Feasibility of Replacing Cement with the Mixture of Rice Husk Ash and Bone Ash in Casting Concrete for Lightweight Structures.</div>
+        <div class="pub-journal">International Journal of Engineering, Vol. 5, No. 2, pp 89–95.</div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-num">2010</div>
+        <div class="pub-authors">Opeyemi D.A., Ogunsakin V.L., <strong>Aliu A.O.</strong> and Olabisi W.</div>
+        <div class="pub-title">Sawdust as a Partial Replacement For Aggregates in Concrete.</div>
+        <div class="pub-journal">Global Journal of Engineering and Technology, Vol. 3, No. 4, pp 689–693.</div>
+      </li>
+
+    </ol>
+  </div>
+</section>
+
+<!-- ONLINE PROFILES & YOUTUBE -->
+<section id="profiles">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Online Presence</div>
+      <h2>Academic Profiles &amp; Media</h2>
+      <p class="section-intro">Access my research profiles, citation databases, and educational video content.</p>
+    </div>
+    <div class="profiles-grid">
+
+      <!-- YouTube — spans full row -->
+      <a class="profile-card yt-card" href="https://www.youtube.com/@DrAdekunleOyewaleAliu" target="_blank">
+        <div class="yt-icon-wrap">▶</div>
+        <div class="yt-text">
+          <div class="profile-name">YouTube Channel</div>
+          <div class="profile-desc">@DrAdekunleOyewaleAliu · Educational lectures, research explainers &amp; supplementary course content for civil engineering students.</div>
+        </div>
+      </a>
+
+      <a class="profile-card" href="https://scholar.google.com/citations?hl=en&user=GJqslR0AAAAJ" target="_blank">
+        <div class="profile-icon-wrap" style="background:#e8f0fe;">🎓</div>
+        <div class="profile-name">Google Scholar</div>
+        <div class="profile-desc">Citations · h-index · i10-index</div>
+      </a>
+
+      <a class="profile-card" href="https://www.researchgate.net/profile/Aliu-Adekunle" target="_blank">
+        <div class="profile-icon-wrap" style="background:#e8f8f5;">🔬</div>
+        <div class="profile-name">ResearchGate</div>
+        <div class="profile-desc">Full publication list &amp; preprints</div>
+      </a>
+
+      <a class="profile-card" href="https://www.scopus.com/authid/detail.uri?authorId=58043604400" target="_blank">
+        <div class="profile-icon-wrap" style="background:#fff3e0;">📊</div>
+        <div class="profile-name">Scopus</div>
+        <div class="profile-desc">Author ID: 58043604400</div>
+      </a>
+
+      <a class="profile-card" href="https://orcid.org/0000-0003-3749-0894" target="_blank">
+        <div class="profile-icon-wrap" style="background:#e8f5e9;">🆔</div>
+        <div class="profile-name">ORCID</div>
+        <div class="profile-desc">0000-0003-3749-0894</div>
+      </a>
+
+      <a class="profile-card" href="https://www.webofscience.com/wos/author/record/KOD-5211-2024" target="_blank">
+        <div class="profile-icon-wrap" style="background:#fce4ec;">📖</div>
+        <div class="profile-name">Web of Science</div>
+        <div class="profile-desc">Record: KOD-5211-2024</div>
+      </a>
+
+      <a class="profile-card" href="https://www.linkedin.com/in/adekunle-aliu-ph-d-046543195" target="_blank">
+        <div class="profile-icon-wrap" style="background:#e3f2fd;">💼</div>
+        <div class="profile-name">LinkedIn</div>
+        <div class="profile-desc">Professional network &amp; updates</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIPS -->
+<section id="memberships">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Professional Bodies</div>
+      <h2>Memberships</h2>
+    </div>
+    <div class="member-grid">
+      <div class="member-card">
+        <div class="member-badge">SAICE</div>
+        <div>
+          <div class="member-name">South Africa Institution of Civil Engineering</div>
+          <div class="member-id">Member No. 202101145 · Since 2021</div>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="member-badge">COREN</div>
+        <div>
+          <div class="member-name">Council for the Regulation of Engineering in Nigeria</div>
+          <div class="member-id">R. 22,203 · Since 2012</div>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="member-badge">NSE</div>
+        <div>
+          <div class="member-name">Nigerian Society of Engineers</div>
+          <div class="member-id">MNSE 24297 · Since 2010</div>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="member-badge">ASCE</div>
+        <div>
+          <div class="member-name">American Society of Civil Engineers</div>
+          <div class="member-id">M.ASCE 406742 · Since 2005</div>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="member-badge">IAENG</div>
+        <div>
+          <div class="member-name">International Association of Engineers</div>
+          <div class="member-id">MIAENG 133197</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFEREES -->
+<section id="referees">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">References</div>
+      <h2>Professional Referees</h2>
+    </div>
+    <div class="referees-grid">
+      <div class="referee-card">
+        <div class="ref-name">Dr. Christina McLeod</div>
+        <div class="ref-title">Supervisor / Academic Reference</div>
+        <div class="ref-inst">Civil Engineering Department, University of KwaZulu-Natal, Durban, South Africa</div>
+        <div class="ref-contact">
+          ✉️ <a href="mailto:McLeod@ukzn.ac.za">McLeod@ukzn.ac.za</a><br>
+          📞 <a href="tel:+27845101588">+27 84 510 1588</a>
+        </div>
+      </div>
+      <div class="referee-card">
+        <div class="ref-name">Prof. David Akinyiwola Opeyemi</div>
+        <div class="ref-title">Professor of Civil Engineering</div>
+        <div class="ref-inst">Faculty of Engineering, Achievers University Owo, Ondo State, Nigeria</div>
+        <div class="ref-contact">
+          ✉️ <a href="mailto:opeyemi.da@achievers.edu.ng">opeyemi.da@achievers.edu.ng</a><br>
+          📞 <a href="tel:+2348034398502">+234 803 439 8502</a>
+        </div>
+      </div>
+      <div class="referee-card">
+        <div class="ref-name">Prof. Joseph Afolayan</div>
+        <div class="ref-title">Professor of Civil Engineering</div>
+        <div class="ref-inst">Civil &amp; Environmental Engineering Dept., Federal University of Technology, Akure, Nigeria</div>
+        <div class="ref-contact">
+          ✉️ <a href="mailto:joafolayan@futa.edu.ng">joafolayan@futa.edu.ng</a><br>
+          📞 <a href="tel:+2348035887850">+234 803 588 7850</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    &copy; 2025 Dr. Adekunle Oyewale Aliu · Civil Engineer &amp; Researcher ·
+    <a href="mailto:aliukunle@gmail.com">aliukunle@gmail.com</a>
+  </p>
+  <p style="margin-top:.5rem;">
+    Built for GitHub Pages · 
+    <a href="https://scholar.google.com/citations?hl=en&user=GJqslR0AAAAJ" target="_blank">Google Scholar</a> · 
+    <a href="https://www.youtube.com/@DrAdekunleOyewaleAliu" target="_blank">YouTube</a> · 
+    <a href="https://www.linkedin.com/in/adekunle-aliu-ph-d-046543195" target="_blank">LinkedIn</a>
+  </p>
+</footer>
+
+</body>
+</html>
